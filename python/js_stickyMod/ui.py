@@ -15,20 +15,17 @@ js_stickyMod.ui.ui ()
 
 from __future__ import absolute_import
 
-from importlib import reload
-
 import maya.cmds as cmds
 import maya.mel as mel
 import sys
 import os
 import js_stickyMod.stickyMod_funcs as funcs
-reload (funcs)
 
 
 
 def ui ():
 
-	version = 'v1.03'
+	version = 'v1.05'
 
 	# Define
 
@@ -64,14 +61,14 @@ def ui ():
 
 	cmds.separator (h = 6, style = 'none')
 
-	cmds.iconTextButton (l = '                Create Sticky Mod', i = 'softMod.png', bgc = bColor_green, ann = "Creates a ride-along manipulator with adjustable falloff for quick mesh adjustments.\n* Select 1 vertex to run, or multiple vertices to ignore interactive falloff and auto-flood/smooth the map. When running on multiple, the rivet will be built on the last vert in the selection.\nThis tool uses Handles and Nurbs Curves, which are turned on automatically if 'Force Display' is on.", st = 'iconAndTextHorizontal', w = bWidth, h = bHeight, c = 'import js_stickyMod.ui as ui ; reload(ui) ; ui.sm_create ()')
+	cmds.iconTextButton (l = '                Create Sticky Mod', i = 'softMod.png', bgc = bColor_green, ann = "Creates a ride-along manipulator with adjustable falloff for quick mesh adjustments.\n* Select 1 vertex to run, or multiple vertices to ignore interactive falloff and auto-flood/smooth the map. When running on multiple, the rivet will be built on the last vert in the selection.\nThis tool uses Handles and Nurbs Curves, which are turned on automatically if 'Force Display' is on.", st = 'iconAndTextHorizontal', w = bWidth, h = bHeight, c = 'import js_stickyMod.ui as ui ; ui.sm_create ()')
 	cmds.rowColumnLayout (nc = 2, rs = [2,3], cs = [2,3])
-	cmds.button (l = 'Add Geo', bgc = bColor_brown, ann = 'Add selected geo to selected sticky mod.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; reload (funcs) ; funcs.addGeo_sel ()')
-	cmds.button (l = 'Remove Geo', bgc = bColor_brown, ann = 'Remove selected geo from selected sticky mod.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; reload (funcs) ; funcs.removeGeo_sel ()')
-	cmds.button (l = 'Ori To World', bgc = bColor_brown, ann = 'Orient selected sticky mod to the world.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; reload (funcs) ; funcs.oriToWorld_sel ()')
-	cmds.button (l = 'Aim At Sel', bgc = bColor_brown, ann = "Select an object and a sticky mod to aim the sticky mod's null at the object.", w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; reload (funcs) ; funcs.aimAtObj_sel ()')
+	cmds.button (l = 'Add Geo', bgc = bColor_brown, ann = 'Add selected geo to selected sticky mod.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; funcs.addGeo_sel ()')
+	cmds.button (l = 'Remove Geo', bgc = bColor_brown, ann = 'Remove selected geo from selected sticky mod.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; funcs.removeGeo_sel ()')
+	cmds.button (l = 'Ori To World', bgc = bColor_brown, ann = 'Orient selected sticky mod to the world.', w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; funcs.oriToWorld_sel ()')
+	cmds.button (l = 'Aim At Sel', bgc = bColor_brown, ann = "Select an object and a sticky mod to aim the sticky mod's null at the object.", w = bWidth2, h = bHeight2, c = 'import js_stickyMod.stickyMod_funcs as funcs ; funcs.aimAtObj_sel ()')
 	cmds.setParent ('..')
-	cmds.button (l = 'Break Rivet Rotation', bgc = bColor_brown, ann = 'Break rotation follow on the null of the selected sticky mod.', h = bHeight2, w = bWidth, c = 'import js_stickyMod.stickyMod_funcs as funcs ; reload (funcs) ; funcs.breakRot_sel ()')
+	cmds.button (l = 'Break Rivet Rotation', bgc = bColor_brown, ann = 'Break rotation follow on the null of the selected sticky mod.', h = bHeight2, w = bWidth, c = 'import js_stickyMod.stickyMod_funcs as funcs ; funcs.breakRot_sel ()')
 	
 	cmds.separator (h = 4, style = 'none')
 
@@ -99,7 +96,7 @@ def ui ():
 	cmds.setParent ('..')
 
 	cmds.columnLayout (adj = 1, rs = 3)
-	cmds.button (l = "Create Rivet", bgc = bColor_blue, w = bWidth2, h = bHeight2, ann = "Select a vertex and run.", c = "import js_stickyMod.stickyMod_funcs as stickyMod_funcs ; reload (stickyMod_funcs) ; stickyMod_funcs.rivet_sel (loc = 1)")
+	cmds.button (l = "Create Rivet", bgc = bColor_blue, w = bWidth2, h = bHeight2, ann = "Select a vertex and run.", c = "import js_stickyMod.stickyMod_funcs as stickyMod_funcs ; stickyMod_funcs.rivet_sel (loc = 1)")
 	cmds.button (l = "Download 'AnimPolish' For More Finaling Tools", bgc = bColor_blue, w = bWidth2, h = bHeight2, c = "import webbrowser ; webbrowser.open('http://joshsobelrigs.com/animpolish')")
 	cmds.setParent ('..')
 	

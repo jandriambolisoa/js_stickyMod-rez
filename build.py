@@ -2,7 +2,6 @@ import os
 import os.path
 import shutil
 import sys
-import stat
 
 
 def build(source_path, build_path, install_path, targets):

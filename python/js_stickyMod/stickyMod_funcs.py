@@ -9,7 +9,6 @@ http://www.joshsobelrigs.com
 
 
 from __future__ import absolute_import
-from importlib import reload
 
 import maya.cmds as cmds
 import maya.mel as mel
