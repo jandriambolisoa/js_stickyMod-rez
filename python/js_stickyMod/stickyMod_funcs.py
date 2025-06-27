@@ -95,7 +95,7 @@ def rivet (vtx, surf, outGeo = '', loc = 0):
 
 def stickyMod (surf, falloff = 1):
 
-	sm_dfrm,sm_hdl = cmds.softMod (surf)
+	sm_dfrm,sm_hdl = cmds.softMod (surf, bf = True)
 	sm_shp = cmds.listRelatives (sm_hdl, c = 1)[0]
 	cmds.setAttr ('{}.visibility'.format (sm_shp), 0)
 	cmds.setAttr ('{}.visibility'.format (sm_hdl), l = 1, k = 0)

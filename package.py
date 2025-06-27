@@ -1,6 +1,6 @@
 name = "js_stickyMod"
 
-version = "0.1.05"
+version = "0.1.05-r.1"
 
 authors = [
     "Josh Sobel",
